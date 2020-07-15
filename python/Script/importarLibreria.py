@@ -13,6 +13,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # importar el data set
-dataset = pd.read_csv("Data.csv")
+dataset = pd.read_csv("../datasets/Data.csv")
 X = dataset.iloc[:,:-1].values
 y = dataset.iloc[:,3].values
+
+#Tratamiento NAs
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values = pd.Na, strategy = "mean")
+imputer = imputer.fit(X[:,1:3])
+X[:,1:3] = imputer.transform(X[:,1:3])
