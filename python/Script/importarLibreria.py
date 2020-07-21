@@ -22,3 +22,8 @@ from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan, strategy = "mean")
 imputer = imputer.fit(X[:,1:3])
 X[:,1:3] = imputer.transform(X[:,1:3])
+
+#Codificar datos categoricos
+from sklearn import preprocessing
+let_X = preprocessing.LabelEncoder()
+X[:,0] = let_X.fit_transform(X[:,0])
