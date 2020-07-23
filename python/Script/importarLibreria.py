@@ -25,5 +25,9 @@ X[:,1:3] = imputer.transform(X[:,1:3])
 
 #Codificar datos categoricos
 from sklearn import preprocessing
+from sklearn.preprocessing import OneHotEncoder 
+from sklearn.compose import ColumnTransformer
 let_X = preprocessing.LabelEncoder()
 X[:,0] = let_X.fit_transform(X[:,0])
+ct = ColumnTransformer([('one_hot_encoder', OneHotEncoder(categories='auto'),[0])],remainder='passthrough')
+X = np.array(ct.fit_transform(X), dtype=np.float)
