@@ -34,3 +34,6 @@ X = np.array(ct.fit_transform(X), dtype=np.float)
 #Codificar datos categoricos en Y
 labelencoder_y = preprocessing.LabelEncoder()
 y = labelencoder_y.fit_transform(y)
+# dividir dataset en entrenaminto y prueba
+from  sklearn.model_selection import train_test_split
+X_trian, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2, random_state = 0)
