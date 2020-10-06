@@ -37,3 +37,6 @@ y = labelencoder_y.fit_transform(y)
 # dividir dataset en entrenaminto y prueba
 from  sklearn.model_selection import train_test_split
 X_trian, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2, random_state = 0)
+#Escalado de variables
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler
